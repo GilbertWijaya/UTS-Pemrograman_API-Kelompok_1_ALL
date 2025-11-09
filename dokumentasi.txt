@@ -15,8 +15,9 @@ php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider" /
 sisanya dapat dilihat pada file yang dikonfigurasi berupa 
 config: sanctum.php, app.php, auth.php
 bootstrap : app.php
-models : User.php
+models : Mahasiswa.php
 controller/http: AuthController
 api.php
 seluruh folder database
+seeder & factory : MahasiswaSeeder.php & MahasiswaFactory.php
 .env
