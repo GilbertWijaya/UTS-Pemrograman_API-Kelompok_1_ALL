@@ -1,15 +1,19 @@
 1. untuk melakukan generate data 
 php artisan tinker
-User::factory()->count(10)->create() // untuk generate 10 data
-User::create(['name'=>'gilbert','email'=>'gilbert@gmail.com','password'=>'gilbert']); // untuk generate 1 data
+Mahasiswa::factory()->count(10)->create() // untuk generate 10 data faker-factory
+Mahasiswa::create(['name'=>'gilbert','email'=>'gilbert@gmail.com','password'=>'gilbert']); // untuk generate 1 data seeder
 exit // untuk keluar dari tinker
+
+melalui manual 
+php artsan db:seed // untuk keseluruhan seeder
+php artsan db:seed --class=MahasiswaSeeder// untuk keseluruhan seeder
 
 2. instalasi sactum
 composer require laravel/sanctum
 php artisan install:api // untuk generate file route api
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider" // publish vendor
 sisanya dapat dilihat pada file yang dikonfigurasi berupa 
-config: sanctum.php, app.php
+config: sanctum.php, app.php, auth.php
 bootstrap : app.php
 models : User.php
 controller/http: AuthController

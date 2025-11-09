@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,11 +10,11 @@ class AuthController extends Controller
 {
     public function index(Request $request)
     {
-        $admin = User::all();//mengembalikan dalam bentuk array
+        $mahasiswa = Mahasiswa::all();//mengembalikan dalam bentuk array
 
         return response()->json([
             "status" => true,
-            "data" => $admin
+            "data" => $mahasiswa
         ],200);
     }
 
@@ -31,21 +31,21 @@ class AuthController extends Controller
             ], 401);
         }
 
-        $user = Auth::user();
+        $mahasiswa = Auth::user();
 
         // 🔥 Hapus semua token lama user ini
-        /** @var \Laravel\Sanctum\HasApiTokens|\App\Models\User $user */
-        $user->tokens()->delete();
+        /** @var \Laravel\Sanctum\HasApiTokens|\App\Models\Mahasiswa $mahasiswa */
+        $mahasiswa->tokens()->delete();
 
         // Membuat token baru
-        /** @var \Laravel\Sanctum\HasApiTokens|\App\Models\User $user */
-        $token = $user->createToken('auth_token')->plainTextToken;
+        /** @var \Laravel\Sanctum\HasApiTokens|\App\Models\Mahasiswa $mahasiswa */
+        $token = $mahasiswa->createToken('auth_token')->plainTextToken;
 
         return response()->json([
             'message' => 'Login berhasil',
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'user' => $user
+            'user' => $mahasiswa
         ]);
     }
 
