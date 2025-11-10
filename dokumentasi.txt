@@ -21,3 +21,10 @@ api.php
 seluruh folder database
 seeder & factory : MahasiswaSeeder.php & MahasiswaFactory.php
 .env
+
+3. instalasi telescope
+composer require laravel/telescope --dev
+php artisan telescope:install
+php artisan migrate
+php artisan migrate:refresh
+php artisan serve : 127.0.0.1:8000/telescope
